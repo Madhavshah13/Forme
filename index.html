@@ -93,6 +93,9 @@
     footer p {
       font-size: 0.9rem;
     }
+    .checklist-item {
+      margin: 0.3rem 0;
+    }
   </style>
 </head>
 <body>
@@ -147,13 +150,39 @@
     }
 
     function showChecklist() {
-      document.getElementById("dynamicContent").innerHTML = `
-        <h4>Your Daily Burn</h4>
-        <p>🧍 Steps: 5,100</p>
-        <p>🔥 Burned: 280 kcal</p>
-        <p>🎯 Goal: 500 kcal/day</p>
-      `;
-    }
+  const tasks = [
+    { id: 'breakfast', label: 'Had breakfast' },
+    { id: 'restaurant', label: 'Ate out from recommended restaurant' },
+    { id: 'groceries', label: 'Bought groceries' },
+    { id: 'yoga', label: 'Did yoga in the morning' },
+    { id: 'hydrated', label: 'Reached water goal' }
+  ];
+
+  let content = `
+    <h4>Your Daily Burn</h4>
+    <p>🧍 Steps: 5,100</p>
+    <p>🔥 Burned: 280 kcal</p>
+    <p>🎯 Goal: 500 kcal/day</p>
+    <h4>Today's Checklist</h4>
+    <div id="checklist-container">
+      ${tasks.map(task => `
+        <div class="checklist-item" id="item-${task.id}">
+          <input type="checkbox" id="${task.id}" onchange="moveToBottom('${task.id}')" />
+          <label for="${task.id}">${task.label}</label>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  document.getElementById("dynamicContent").innerHTML = content;
+}
+
+function moveToBottom(id) {
+  const container = document.getElementById('checklist-container');
+  const item = document.getElementById(`item-${id}`);
+  container.removeChild(item);
+  container.appendChild(item);
+}
 
     function showWaterGoal() {
       document.getElementById("dynamicContent").innerHTML = `
