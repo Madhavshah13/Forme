@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forme – Personalized AI Fitness Coach</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #F8FAFC;
+      color: #1F2937;
+    }
+    header {
+      background: linear-gradient(135deg, #38B2AC, #4299E1);
+      color: white;
+      text-align: center;
+      padding: 1.5rem 2rem;
+      position: relative;
+    }
+    header h2 {
+      font-weight: normal;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: #E6FFFA;
+      padding: 1rem;
+    }
+    nav a {
+      margin: 0.5rem 1rem;
+      text-decoration: none;
+      color: #2C7A7B;
+      font-weight: bold;
+    }
+    .mockup-icons {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 1rem;
+      background: #ffffff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      margin: 1rem auto;
+      max-width: 700px;
+    }
+    .mockup-icons div {
+      text-align: center;
+      cursor: pointer;
+      color: #2C7A7B;
+      font-weight: 600;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      margin: 0.5rem;
+    }
+    .mockup-icons div:hover {
+      transform: scale(1.1);
+      background-color: #E6FFFA;
+      border-radius: 8px;
+      padding: 0.3rem;
+    }
+    .mockup-icons span {
+      font-size: 1.7rem;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    #dynamicContent {
+      background: #EBF8FF;
+      margin: 1rem auto;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+      max-width: 700px;
+    }
+    h4 {
+      color: #2B6CB0;
+      margin-bottom: 1rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    p {
+      margin: 0.5rem 0;
+    }
+    footer {
+      background: linear-gradient(135deg, #38B2AC, #4299E1);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    footer p {
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Forme – Personalized AI Fitness Coach</h1>
+    <h2>Fitness That Moves With You</h2>
+  </header>
+
+  <nav>
+    <a href="#" onclick="loadDashboard()">Dashboard</a>
+    <a href="#" onclick="loadUserProfile()">My Life</a>
+  </nav>
+
+  <div class="mockup-icons">
+    <div onclick="showNutrition()"><span>🥗</span>Nutrition</div>
+    <div onclick="showChecklist()"><span>✅</span>Checklist</div>
+    <div onclick="showWaterGoal()"><span>💧</span>Water</div>
+    <div onclick="showWorkout()"><span>🏃‍♂️</span>Workout</div>
+    <div onclick="showStats()"><span>📊</span>Stats</div>
+  </div>
+
+  <div id="dynamicContent">
+    <p>👋 Hey there! I’m your AI fitness coach. Choose a section above to start your personalized wellness journey.</p>
+  </div>
+
+  <footer>
+    <p>Backed by data. Designed for humans. © 2025 Forme AI.</p>
+  </footer>
+
+  <script>
+    function loadDashboard() {
+      document.getElementById("dynamicContent").innerHTML = `
+        <p>Select a category above to view personalized insights.</p>
+      `;
+    }
+
+    function showNutrition() {
+      document.getElementById("dynamicContent").innerHTML = `
+        <h4>What Should I Eat Today?</h4>
+        <ul>
+          <li>🌅 Breakfast: Avocado toast + protein smoothie (350 kcal)</li>
+          <li>🥗 Lunch: Chickpea quinoa bowl + tahini dressing (480 kcal)</li>
+          <li>🌇 Dinner: Stir-fried tofu + brown rice + broccoli (520 kcal)</li>
+        </ul>
+        <h4>Smart Eat-Out Picks Near You</h4>
+        <p><strong>Sweetgreen:</strong> Kale Caesar Bowl – 420 kcal</p>
+        <p><strong>By Chloe:</strong> Guac Burger – 600 kcal</p>
+        <p><strong>Just Salad:</strong> Thai Vegan Bowl – 480 kcal</p>
+        <h4>Grocery Essentials</h4>
+        <p>🛒 Whole Foods (5 min away): Vegan protein, stir-fry veggie mix, almond milk</p>
+      `;
+    }
+
+    function showChecklist() {
+      document.getElementById("dynamicContent").innerHTML = `
+        <h4>Your Daily Burn</h4>
+        <p>🧍 Steps: 5,100</p>
+        <p>🔥 Burned: 280 kcal</p>
+        <p>🎯 Goal: 500 kcal/day</p>
+      `;
+    }
+
+    function showWaterGoal() {
+      document.getElementById("dynamicContent").innerHTML = `
+        <h4>Hydration Check</h4>
+        <p>Goal: 2.3L/day</p>
+        <p>💧 Drank so far: 1.6L</p>
+      `;
+    }
+
+    function showWorkout() {
+      document.getElementById("dynamicContent").innerHTML = `
+        <h4>Hotel Room Workout</h4>
+        <ul>
+          <li>Bodyweight squats × 20</li>
+          <li>Pushups × 10</li>
+          <li>Mountain climbers × 20</li>
+          <li>Plank × 30 sec</li>
+        </ul>
+      `;
+    }
+
+    function showStats() {
+      document.getElementById("dynamicContent").innerHTML = `
+        <h4>Weekly Snapshot</h4>
+        <p>✅ 5 of 6 workouts completed</p>
+        <p>💧 Avg hydration: 2L/day</p>
+        <p>🔥 Avg burn: 430 kcal/day</p>
+      `;
+    }
+
+    function loadUserProfile() {
+      document.getElementById("dynamicContent").innerHTML = `
+        <h4>Meet Nupur</h4>
+        <p>📍 Lives in NYC, prefers vegan food, works remote, and travels monthly.</p>
+        <p>🎯 Fitness Goals: Maintain weight, gain flexibility, reduce stress.</p>
+        <p>💡 AI Insight: Needs meal plans that adapt to her weekly travel, hotel facilities, and vegan groceries nearby.</p>
+      `;
+    }
+  </script>
+</body>
+</html>
